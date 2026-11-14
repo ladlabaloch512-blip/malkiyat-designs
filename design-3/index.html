@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Malkiyat Associates &amp; Builders | House Construction in Islamabad</title>
+<meta name="description" content="Malkiyat Associates &amp; Builders: complete construction services in Islamabad and Rawalpindi, design, build and finishing. Price your plot with our online estimate, then book a site visit.">
+<link rel="icon" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="style.css?v=d3-1">
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+<!-- Hybrid smart loader -->
+<div class="loader" id="loader" role="status" aria-label="Loading">
+  <div class="loader__inner">
+    <img class="loader__logo" src="img/logo.png" alt="Malkiyat Associates &amp; Builders" width="1793" height="877">
+    <p class="loader__line">Preparing the evening view</p>
+    <div class="loader__bar"><span id="loaderFill"></span></div>
+    <p class="loader__pct"><span id="loaderPct">0</span>%</p>
+    <button class="loader__enter" id="loaderEnter" type="button" hidden>Enter the site</button>
+  </div>
+</div>
+<script>
+// Failsafe: if the main script cannot run, lift the loader so all content stays visible and usable.
+setTimeout(function(){ if(!window.__loaderDone){ var l=document.getElementById('loader'); if(l){ l.classList.add('is-done'); } document.body.classList.remove('is-locked'); } }, 6000);
+</script>
+
+<header class="site-header">
+  <div class="wrap site-header__in">
+    <a class="brand" href="#top" aria-label="Malkiyat Associates and Builders, home">
+      <img src="img/logo.png" alt="Malkiyat Associates &amp; Builders" width="1793" height="877">
+    </a>
+    <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="mainNav" aria-label="Open menu">
+      <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <nav class="main-nav" id="mainNav" aria-label="Main">
+      <a href="#about">About</a>
+      <a href="#calculator">Cost calculator</a>
+      <a href="#projects">Projects</a>
+      <a href="#process">How we build</a>
+      <a href="#contact">Contact</a>
+      <a class="main-nav__call" href="tel:+923075716367">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg>
+        0307 5716367
+      </a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- Pinned scroll sequence -->
+  <section class="intro" id="intro" aria-label="Evening view of a Malkiyat home">
+    <div class="intro__stage">
+      <div class="wrap intro__grid">
+        <div class="intro__text">
+          <div class="intro__start" id="introStart">
+            <p class="kicker">Malkiyat Associates &amp; Builders</p>
+            <h2 class="intro__title">Built by day.<br><em>Beautiful by dusk.</em></h2>
+            <p class="intro__cue"><span class="intro__cue-line" aria-hidden="true"></span>Scroll to walk up to the house</p>
+          </div>
+          <ol class="intro__captions" id="introCaptions" aria-label="Evening arrival">
+            <li class="intro__caption is-active">
+              <p class="intro__caption-title">Dusk Arrival</p>
+              <p class="intro__caption-text">You reach the street at dusk. The house is waiting at the end of the road, quiet and finished.</p>
+            </li>
+            <li class="intro__caption">
+              <p class="intro__caption-title">Lights On</p>
+              <p class="intro__caption-text">Wall lights and windows come alive. Good finishing is what turns a structure into a home.</p>
+            </li>
+            <li class="intro__caption">
+              <p class="intro__caption-title">Front Elevation</p>
+              <p class="intro__caption-text">Clean lines, a strong gate and a front that holds its own on any street in Islamabad or Rawalpindi.</p>
+            </li>
+            <li class="intro__caption">
+              <p class="intro__caption-title">Welcome Home</p>
+              <p class="intro__caption-text">This is the moment we build for. Scroll on to price your own plot, or talk to our team.</p>
+            </li>
+          </ol>
+          <div class="intro__rail" aria-hidden="true">
+            <div class="intro__rail-line"><span id="railFill"></span></div>
+            <ol class="intro__rail-list" id="railList">
+              <li class="is-active"><span>1</span><em>Dusk Arrival</em></li>
+              <li><span>2</span><em>Lights On</em></li>
+              <li><span>3</span><em>Front Elevation</em></li>
+              <li><span>4</span><em>Welcome Home</em></li>
+            </ol>
+          </div>
+        </div>
+        <div class="intro__panel">
+          <picture class="intro__poster">
+            <img src="img/poster-seq3.webp" alt="A finished Malkiyat house at dusk with warm lights and a black gate" width="540" height="960" loading="eager" decoding="async">
+          </picture>
+          <canvas class="intro__canvas" id="introCanvas" aria-hidden="true"></canvas>
+          <div class="intro__shade" aria-hidden="true"></div>
+          <p class="intro__panel-tag" aria-hidden="true">An evening arrival, frame by frame</p>
+        </div>
+      </div>
+      <a class="intro__skip" href="#calculator" id="skipIntro">Skip intro</a>
+    </div>
+  </section>
+
+  <!-- Hero statement -->
+  <section class="statement">
+    <div class="wrap statement__grid">
+      <div>
+        <p class="kicker">House construction, Islamabad and Rawalpindi</p>
+        <h1 class="statement__title">House construction in Islamabad, priced before the first brick.</h1>
+        <p class="lead">Malkiyat Associates &amp; Builders designs and builds homes in Islamabad and Rawalpindi. Price your plot online in a minute, then sit down with our team to plan the build.</p>
+        <div class="btn-row">
+          <a class="btn btn--amber" href="#calculator">Open cost calculator</a>
+          <a class="btn btn--ghost" href="https://wa.me/923315161679?text=Assalamualaikum%2C%20I%20want%20to%20discuss%20building%20a%20house." target="_blank" rel="noopener">Book a consultation</a>
+          <a class="text-link" href="#projects">View projects</a>
+        </div>
+      </div>
+      <figure class="statement__fig">
+        <img src="img/final-seq3.webp" alt="Finished house at dusk with warm wall lights" width="540" height="960" loading="lazy" decoding="async">
+      </figure>
+    </div>
+  </section>
+
+  <!-- About and services -->
+  <section class="section" id="about">
+    <div class="wrap">
+      <div class="section__head">
+        <p class="kicker">About us</p>
+        <h2 class="section__title">One team, from the first drawing to the last light fitting</h2>
+      </div>
+      <div class="about__grid">
+        <div class="about__text">
+          <p>Malkiyat Associates &amp; Builders is a construction firm based in Gulberg Greens, Islamabad. We build homes in Islamabad and Rawalpindi and take each project from design to finishing under one team, so the family building the house deals with one office from start to end.</p>
+          <p>We are a PEC registered firm and a member of the Islamabad Chamber of Commerce. Every house is priced before the work begins, and the written quotation follows a site visit and approved drawings.</p>
+          <div class="badge-row">
+            <span class="badge">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
+              PEC Registered Firm
+            </span>
+            <span class="badge">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/></svg>
+              Islamabad Chamber of Commerce Member
+            </span>
+          </div>
+        </div>
+        <div class="cards-offset">
+          <article class="svc-card">
+            <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 20L20 4M14 4h6v6M4 14v6h6"/><path d="M3 21h18" opacity=".5"/></svg>
+            <h3>Design</h3>
+            <p>Plans, elevations and working drawings for your plot, prepared before construction starts so the price and the picture match.</p>
+          </article>
+          <article class="svc-card">
+            <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M3 21h18M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6M12 3v3" opacity=".7"/></svg>
+            <h3>Build</h3>
+            <p>Grey structure built properly: foundation, columns, beams, slabs and brickwork, supervised on site by our own team.</p>
+          </article>
+          <article class="svc-card">
+            <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/><circle cx="12" cy="12" r="3"/></svg>
+            <h3>Finishing</h3>
+            <p>Plaster, flooring, woodwork, glazing and lighting, the details that decide how a house feels when the lights come on.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Calculator -->
+  <section class="section section--calc" id="calculator">
+    <div class="wrap">
+      <div class="section__head">
+        <p class="kicker">Cost calculator</p>
+        <h2 class="section__title">Price your plot in a minute</h2>
+        <p class="lead">Choose what you want built, your plot size and floors. The estimate uses the same rates our team quotes from, per square foot of covered area.</p>
+        <p class="note">1 marla = 250 sq ft &middot; 1 kanal = 20 marla</p>
+      </div>
+      <div class="calc" id="calc">
+        <div class="calc__fields">
+          <fieldset class="calc__group">
+            <legend>What you want</legend>
+            <div class="seg" data-group="buildType">
+              <button type="button" data-value="finishing" class="is-on">With finishing</button>
+              <button type="button" data-value="grey">Grey structure</button>
+            </div>
+          </fieldset>
+          <fieldset class="calc__group" id="packageGroup">
+            <legend>Package</legend>
+            <div class="seg" data-group="pkg">
+              <button type="button" data-value="platinum">Platinum</button>
+              <button type="button" data-value="gold" class="is-on">Gold</button>
+              <button type="button" data-value="silver">Silver</button>
+            </div>
+          </fieldset>
+          <fieldset class="calc__group">
+            <legend>Plot size</legend>
+            <div class="seg" data-group="plot">
+              <button type="button" data-value="5">5 Marla</button>
+              <button type="button" data-value="10" class="is-on">10 Marla</button>
+              <button type="button" data-value="20">1 Kanal</button>
+              <button type="button" data-value="other">Other size</button>
+            </div>
+            <label class="calc__other" id="otherWrap" hidden>Plot size in Marla
+              <input type="number" id="otherMarla" min="1" max="200" step="1" value="7" inputmode="numeric">
+            </label>
+          </fieldset>
+          <fieldset class="calc__group">
+            <legend>Floors</legend>
+            <div class="seg" data-group="floors">
+              <button type="button" data-value="1">1 floor</button>
+              <button type="button" data-value="2" class="is-on">2 floors</button>
+              <button type="button" data-value="3">3 floors</button>
+            </div>
+          </fieldset>
+        </div>
+        <div class="calc__result" aria-live="polite">
+          <p class="calc__area"><span id="resArea">5,300</span> sq ft covered area</p>
+          <p class="calc__price" id="resPrice">Rs 3.98 crore</p>
+          <p class="calc__work" id="resWork">Rs 7,500 per sq ft x 5,300 sq ft, including a 300 sq ft mumty. A first guide; your written quotation follows a site visit.</p>
+          <a class="btn btn--amber" id="waEstimate" href="https://wa.me/923315161679" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.4-.7-2.9-1.2-4.7-4.1-4.9-4.3-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.5c-.1.1-.3.3-.1.6.2.3.9 1.5 2 2.4 1.4 1.2 2.5 1.6 2.9 1.7.3.2.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2.1 1c.3.2.5.3.6.4 0 .1 0 .7-.2 1.2z"/></svg>
+            Send this estimate on WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section class="section" id="projects">
+    <div class="wrap">
+      <div class="section__head">
+        <p class="kicker">Our work</p>
+        <h2 class="section__title">Real projects, real sites</h2>
+        <p class="lead">Photographs from Malkiyat projects in Islamabad and Rawalpindi, from foundation and grey structure to finished homes. Tap any photo to see it larger.</p>
+      </div>
+      <div class="gallery" id="gallery">
+        <button class="g-item" type="button" data-full="img/projects/p01.webp"><img src="img/projects/p01.webp" alt="House project photo 1" loading="lazy" decoding="async"></button>
+        <button class="g-item" type="button" data-full="img/projects/p02.webp"><img src="img/projects/p02.webp" alt="House project photo 2" loading="lazy" decoding="async"></button>
+        <button class="g-item" type="button" data-full="img/projects/p03.webp"><img src="img/projects/p03.webp" alt="House project photo 3" loading="lazy" decoding="async"></button>
+        <button class="g-item" type="button" data-full="img/projects/p04.webp"><img src="img/projects/p04.webp" alt="House project photo 4" loading="lazy" decoding="async"></button>
+        <button class="g-item" type="button" data-full="img/projects/p05.webp"><img src="img/projects/p05.webp" alt="House project photo 5" loading="lazy" decoding="async"></button>
+        <button class="g-item" type="button" data-full="img/projects/p06.webp"><img src="img/projects/p06.webp" alt="House project photo 6" loading="lazy" decoding="async"></button>
+        <button class="g-item" type="button" data-full="img/projects/p07.webp"><img src="img/projects/p07.webp" alt="House project photo 7" loading="lazy" decoding="async"></button>
+        <button class="g-item" type="button" data-full="img/projects/p08.webp"><img src="img/projects/p08.webp" alt="House project photo 8" loading="lazy" decoding="async"></button>
+        <button class="g-item" type="button" data-full="img/projects/p09.webp"><img src="img/projects/p09.webp" alt="House project photo 9" loading="lazy" decoding="async"></button>
+        <button class="g-item" type="button" data-full="img/projects/p10.webp"><img src="img/projects/p10.webp" alt="House project photo 10" loading="lazy" decoding="async"></button>
+        <button class="g-item" type="button" data-full="img/projects/p11.webp"><img src="img/projects/p11.webp" alt="House project photo 11" loading="lazy" decoding="async"></button>
+        <button class="g-item" type="button" data-full="img/projects/p12.webp"><img src="img/projects/p12.webp" alt="House project photo 12" loading="lazy" decoding="async"></button>
+        <button class="g-item" type="button" data-full="img/projects/p13.webp"><img src="img/projects/p13.webp" alt="House project photo 13" loading="lazy" decoding="async"></button>
+        <button class="g-item" type="button" data-full="img/projects/p14.webp"><img src="img/projects/p14.webp" alt="House project photo 14" loading="lazy" decoding="async"></button>
+        <button class="g-item" type="button" data-full="img/projects/p15.webp"><img src="img/projects/p15.webp" alt="House project photo 15" loading="lazy" decoding="async"></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="section" id="process">
+    <div class="wrap">
+      <div class="section__head">
+        <p class="kicker">How we build</p>
+        <h2 class="section__title">From plot to keys, in five clear steps</h2>
+      </div>
+      <div class="cards-offset cards-offset--process">
+        <article class="step-card"><span class="step-card__num">01</span><h3>Site visit and estimate</h3><p>We visit your plot, listen to what you want, and give a first estimate from the same rates as the calculator on this page.</p></article>
+        <article class="step-card"><span class="step-card__num">02</span><h3>Design and written quotation</h3><p>Drawings are prepared for your plot and you receive a written quotation listing the package, covered area and main materials.</p></article>
+        <article class="step-card"><span class="step-card__num">03</span><h3>Grey structure</h3><p>Foundation, columns, beams, slabs and brickwork go up under our own supervision, stage by stage.</p></article>
+        <article class="step-card"><span class="step-card__num">04</span><h3>Finishing</h3><p>Plaster, flooring, woodwork, glazing and lighting, finished to the package you selected.</p></article>
+        <article class="step-card"><span class="step-card__num">05</span><h3>Keys in hand</h3><p>The house is cleaned, checked with you room by room, and handed over ready to live in.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section section--contact" id="contact">
+    <div class="wrap">
+      <div class="section__head">
+        <p class="kicker">Contact</p>
+        <h2 class="section__title">Talk to Sarmad and the team</h2>
+        <p class="lead">Start on WhatsApp, call us, or visit the office in Gulberg Greens. We will arrange a site visit and a written quotation.</p>
+      </div>
+      <div class="contact__grid">
+        <a class="c-card" href="https://wa.me/923315161679?text=Assalamualaikum%2C%20I%20want%20to%20discuss%20building%20a%20house." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.4-.7-2.9-1.2-4.7-4.1-4.9-4.3-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.5c-.1.1-.3.3-.1.6.2.3.9 1.5 2 2.4 1.4 1.2 2.5 1.6 2.9 1.7.3.2.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2.1 1c.3.2.5.3.6.4 0 .1 0 .7-.2 1.2z"/></svg>
+          <span class="c-card__t">WhatsApp</span><span class="c-card__v">0331 5161679</span>
+        </a>
+        <a class="c-card" href="tel:+923075716367">
+          <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg>
+          <span class="c-card__t">Call</span><span class="c-card__v">0307 5716367</span>
+        </a>
+        <a class="c-card" href="mailto:sarmadmalikrealtor@gmail.com">
+          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+          <span class="c-card__t">Email</span><span class="c-card__v">sarmadmalikrealtor@gmail.com</span>
+        </a>
+        <div class="c-card c-card--static">
+          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+          <span class="c-card__t">Office</span><span class="c-card__v">B Block, Gulberg Greens, Islamabad</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap site-footer__in">
+    <img class="site-footer__logo" src="img/logo.png" alt="Malkiyat Associates &amp; Builders" width="1793" height="877" loading="lazy">
+    <p class="site-footer__line">Malkiyat Associates &amp; Builders &middot; Complete construction services: design, build, finishing &middot; Islamabad and Rawalpindi</p>
+    <p class="site-footer__credit">Designed and Developed by <a href="https://abizglobalservices.com" target="_blank" rel="noopener">ABiz Global Services</a></p>
+  </div>
+</footer>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Project photo viewer">
+  <button class="lightbox__close" id="lbClose" type="button" aria-label="Close viewer">
+    <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg>
+  </button>
+  <button class="lightbox__nav lightbox__nav--prev" id="lbPrev" type="button" aria-label="Previous photo">
+    <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+  </button>
+  <img class="lightbox__img" id="lbImg" src="" alt="Project photo, large view">
+  <button class="lightbox__nav lightbox__nav--next" id="lbNext" type="button" aria-label="Next photo">
+    <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+  </button>
+</div>
+
+<script src="app.js?v=d3-1" defer></script>
+</body>
+</html>

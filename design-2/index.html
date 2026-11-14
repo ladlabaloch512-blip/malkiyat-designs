@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Malkiyat Associates &amp; Builders | House Construction in Islamabad and Rawalpindi</title>
+<meta name="description" content="Malkiyat Associates &amp; Builders designs and builds homes in Islamabad and Rawalpindi, from design and grey structure to finishing. Price your plot with our cost calculator.">
+<link rel="icon" href="img/logo.png">
+<link rel="stylesheet" href="style.css">
+<script>document.documentElement.classList.add('js');</script>
+<link rel="preload" as="image" href="frames/seq2/d/f000.webp" media="(min-aspect-ratio: 5/6)" fetchpriority="high">
+<link rel="preload" as="image" href="frames/seq2/m/f000.webp" media="(max-aspect-ratio: 5/6)" fetchpriority="high">
+</head>
+<body>
+
+<div class="loader" id="loader" role="status" aria-label="Loading">
+  <div class="loader__inner">
+    <span class="logo-plate loader__plate"><img src="img/logo.png" alt="Malkiyat Associates &amp; Builders"></span>
+    <p class="loader__title">Preparing your visit</p>
+    <div class="loader__bar"><span id="loaderFill"></span></div>
+    <p class="loader__pct"><span id="loaderPct">0</span>%</p>
+    <button class="loader__enter" id="loaderEnter" type="button" hidden>Enter the site</button>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="container header__row">
+    <a class="logo-plate header__plate" href="#top" aria-label="Malkiyat Associates and Builders, home">
+      <img src="img/logo.png" alt="Malkiyat Associates &amp; Builders">
+    </a>
+    <nav class="main-nav" id="mainNav" aria-label="Main">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#calculator">Cost Calculator</a>
+      <a href="#projects">Projects</a>
+      <a href="#process">Process</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="header__actions">
+      <a class="btn btn--dark header__call" href="tel:+923075716367">
+        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg>
+        <span>0307 5716367</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mainNav">
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ================= SEQUENCE HERO ================= -->
+  <section class="seq" id="top" aria-label="A Malkiyat home, walk through">
+    <div class="seq__stage">
+      <div class="container seq__grid">
+        <div class="seq__text">
+          <p class="eyebrow">Malkiyat Associates &amp; Builders, Islamabad</p>
+          <h1 class="seq__title">Homes built from design to finishing.</h1>
+          <p class="seq__intro">We design and build houses in Islamabad and Rawalpindi. Scroll and walk up to one of our finished homes, then price your own plot with the calculator below.</p>
+
+          <div class="seq__captions" aria-label="Walk through stages">
+            <div class="seq__caption is-active" data-caption="0">
+              <p class="seq__caption-title">The Arrival</p>
+              <p class="seq__caption-text">You arrive at the street and the house comes into view.</p>
+            </div>
+            <div class="seq__caption" data-caption="1">
+              <p class="seq__caption-title">Street Front</p>
+              <p class="seq__caption-text">The front elevation, gate and boundary wall, built as one design.</p>
+            </div>
+            <div class="seq__caption" data-caption="2">
+              <p class="seq__caption-title">Craft Details</p>
+              <p class="seq__caption-text">Stone cladding, glass and steel work, closer with every step.</p>
+            </div>
+            <div class="seq__caption" data-caption="3">
+              <p class="seq__caption-title">Ready to Live</p>
+              <p class="seq__caption-text">A finished home, ready to hand over to its family.</p>
+            </div>
+          </div>
+
+          <div class="seq__rail" aria-hidden="true">
+            <div class="seq__rail-line"><span id="railFill"></span></div>
+            <ol class="seq__stages">
+              <li data-rail="0" class="is-active"><span>1</span><em>The Arrival</em></li>
+              <li data-rail="1"><span>2</span><em>Street Front</em></li>
+              <li data-rail="2"><span>3</span><em>Craft Details</em></li>
+              <li data-rail="3"><span>4</span><em>Ready to Live</em></li>
+            </ol>
+          </div>
+
+          <p class="seq__actions">
+            <a class="btn btn--gold" href="#calculator" id="skipIntro">Skip intro, price my plot</a>
+            <span class="seq__cue" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="15" height="15"><path fill="currentColor" d="M12 16.5 4.5 9l1.4-1.4L12 13.7l6.1-6.1L19.5 9z"/></svg>
+              Scroll to walk in
+            </span>
+          </p>
+        </div>
+
+        <div class="seq__panel">
+          <img class="seq__poster" src="img/poster-seq2.webp" alt="A finished Malkiyat home with a grey and black front elevation and a black gate" width="540" height="960">
+          <canvas class="seq__canvas" aria-hidden="true"></canvas>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT ================= -->
+  <section class="section" id="about">
+    <div class="container split">
+      <div>
+        <p class="eyebrow">About us</p>
+        <h2 class="section-title">A construction firm in Gulberg Greens, Islamabad.</h2>
+      </div>
+      <div class="prose">
+        <p>Malkiyat Associates &amp; Builders builds homes in Islamabad and Rawalpindi, from the first drawings to the last coat of paint. One team takes your house through design, grey structure and finishing, so the people who draw it are answerable for the people who build it.</p>
+        <p>We are a PEC registered firm and a member of the Islamabad Chamber of Commerce. Our office is in B Block, Gulberg Greens, Islamabad, and our contractor Sarmad Awan oversees each project personally.</p>
+        <ul class="fact-list">
+          <li><strong>PEC</strong><span>Registered firm</span></li>
+          <li><strong>ICCI</strong><span>Islamabad Chamber of Commerce member</span></li>
+          <li><strong>Office</strong><span>B Block, Gulberg Greens, Islamabad</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SERVICES ================= -->
+  <section class="section section--stone" id="services">
+    <div class="container">
+      <p class="eyebrow">Services</p>
+      <h2 class="section-title">Complete construction services.</h2>
+      <p class="section-lead">Design, build, finishing. Take one part or hand us the whole house.</p>
+      <div class="cards">
+        <article class="card">
+          <span class="card__icon"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.7" d="M4 20 19 5m0 0h-6m6 0v6M4 20l4-4m7-3 3 3"/></svg></span>
+          <h3>Design</h3>
+          <p>House plans, elevations and working drawings for your plot, drawn before any work starts on site.</p>
+        </article>
+        <article class="card">
+          <span class="card__icon"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.7" d="M4 21h16M6 21V10l6-5 6 5v11M10 21v-5h4v5"/></svg></span>
+          <h3>Build and Grey Structure</h3>
+          <p>Foundation, columns, beams, slabs and brickwork. Take the grey structure alone, or continue with us to a finished house.</p>
+        </article>
+        <article class="card">
+          <span class="card__icon"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.7" d="M5 20 20 5l-2-2L3 18l-1 4 4-1zM14 6l2 2"/></svg></span>
+          <h3>Finishing</h3>
+          <p>Plaster, flooring, woodwork, glazing and paint. The finishing package you choose sets the materials and the final look.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CALCULATOR ================= -->
+  <section class="section" id="calculator">
+    <div class="container">
+      <p class="eyebrow">Cost calculator</p>
+      <h2 class="section-title">Price your plot in a minute.</h2>
+      <p class="section-lead">Choose what you want built, your plot size and floors. The estimate uses our published rates per square foot of covered area.</p>
+      <p class="calc__unit-note">1 marla = 250 sq ft &nbsp;·&nbsp; 1 kanal = 20 marla</p>
+
+      <div class="calc">
+        <div class="calc__group">
+          <p class="calc__label" id="lblType">What you want</p>
+          <div class="seg" role="group" aria-labelledby="lblType" id="segType">
+            <button type="button" class="seg__btn is-selected" data-type="finishing">With finishing</button>
+            <button type="button" class="seg__btn" data-type="grey">Grey structure</button>
+          </div>
+        </div>
+
+        <div class="calc__group" id="pkgGroup">
+          <p class="calc__label" id="lblPkg">Package</p>
+          <div class="seg" role="group" aria-labelledby="lblPkg" id="segPkg">
+            <button type="button" class="seg__btn" data-pkg="platinum">Platinum</button>
+            <button type="button" class="seg__btn is-selected" data-pkg="gold">Gold</button>
+            <button type="button" class="seg__btn" data-pkg="silver">Silver</button>
+          </div>
+        </div>
+
+        <div class="calc__group">
+          <p class="calc__label" id="lblPlot">Plot size</p>
+          <div class="seg" role="group" aria-labelledby="lblPlot" id="segPlot">
+            <button type="button" class="seg__btn" data-plot="5">5 Marla</button>
+            <button type="button" class="seg__btn is-selected" data-plot="10">10 Marla</button>
+            <button type="button" class="seg__btn" data-plot="20">1 Kanal</button>
+            <button type="button" class="seg__btn" data-plot="other">Other size</button>
+          </div>
+          <p class="calc__other" id="otherWrap" hidden>
+            <label for="otherMarla">Your plot size in Marla</label>
+            <input id="otherMarla" type="number" min="1" max="200" step="any" value="7" inputmode="decimal">
+          </p>
+        </div>
+
+        <div class="calc__group">
+          <p class="calc__label" id="lblFloors">Floors</p>
+          <div class="seg" role="group" aria-labelledby="lblFloors" id="segFloors">
+            <button type="button" class="seg__btn" data-floors="1">1 floor</button>
+            <button type="button" class="seg__btn is-selected" data-floors="2">2 floors</button>
+            <button type="button" class="seg__btn" data-floors="3">3 floors</button>
+          </div>
+        </div>
+
+        <div class="calc__result" aria-live="polite">
+          <p class="calc__area"><span id="resArea">5,300</span> sq ft covered area</p>
+          <p class="calc__price" id="resPrice">Rs 3.98 crore</p>
+          <p class="calc__working" id="resWorking">Rs 7,500 per sq ft x 5,300 sq ft, including a 300 sq ft mumty. A first guide; your written quotation follows a site visit.</p>
+          <a class="btn btn--wa" id="waEstimate" href="https://wa.me/923315161679" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.4-.7-2.9-1.2-4.7-4.1-4.9-4.3-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.4 1.8 2.2 1.2 1.1 2.3 1.5 2.6 1.6.3.1.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2.1 1c.3.2.5.3.6.4 0 .1 0 .7-.2 1.2z"/></svg>
+            Send this estimate on WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PROJECTS ================= -->
+  <section class="section section--stone" id="projects">
+    <div class="container">
+      <p class="eyebrow">Projects</p>
+      <h2 class="section-title">Real projects, real photographs.</h2>
+      <p class="section-lead">Houses by Malkiyat Associates &amp; Builders, from grey structure to finished homes. Tap any photo to see it larger.</p>
+      <div class="gallery" id="gallery"></div>
+    </div>
+  </section>
+
+  <!-- ================= PROCESS ================= -->
+  <section class="section" id="process">
+    <div class="container">
+      <p class="eyebrow">How it works</p>
+      <h2 class="section-title">Four steps, plot to keys.</h2>
+      <ol class="steps">
+        <li class="step"><span class="step__num">1</span><h3>Design and drawings</h3><p>We visit the plot, survey it and draw the plans and elevation for your house.</p></li>
+        <li class="step"><span class="step__num">2</span><h3>Written quotation</h3><p>You get a written quotation with the package, covered area and rates before you commit.</p></li>
+        <li class="step"><span class="step__num">3</span><h3>Construction</h3><p>Foundation and grey structure go up first, then plaster and finishing, stage by stage.</p></li>
+        <li class="step"><span class="step__num">4</span><h3>Handover</h3><p>The finished house is cleaned and handed over, ready for your family to move in.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section class="section section--stone" id="contact">
+    <div class="container">
+      <p class="eyebrow">Contact</p>
+      <h2 class="section-title">Talk to Sarmad.</h2>
+      <p class="section-lead">Message on WhatsApp, call, or visit the office in Gulberg Greens.</p>
+      <div class="cards cards--contact">
+        <a class="card card--link" href="https://wa.me/923315161679" target="_blank" rel="noopener">
+          <h3>WhatsApp</h3><p>+92 331 5161679</p><span class="card__go">Start a chat</span>
+        </a>
+        <a class="card card--link" href="tel:+923075716367">
+          <h3>Call</h3><p>+92 307 5716367</p><span class="card__go">Call now</span>
+        </a>
+        <a class="card card--link" href="mailto:sarmadmalikrealtor@gmail.com">
+          <h3>Email</h3><p>sarmadmalikrealtor@gmail.com</p><span class="card__go">Write to us</span>
+        </a>
+        <div class="card">
+          <h3>Office</h3><p>B Block, Gulberg Greens,<br>Islamabad</p><span class="card__go">Contractor: Sarmad Awan</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer__row">
+    <span class="logo-plate footer__plate"><img src="img/logo.png" alt="Malkiyat Associates &amp; Builders"></span>
+    <p class="footer__name">Malkiyat Associates &amp; Builders, Islamabad and Rawalpindi</p>
+    <p class="footer__credit">Designed and Developed by <a href="https://abizglobalservices.com" target="_blank" rel="noopener">ABiz Global Services</a></p>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Project photo viewer">
+  <button class="lightbox__btn lightbox__close" id="lbClose" type="button" aria-label="Close viewer">
+    <svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M6.4 5 5 6.4 10.6 12 5 17.6 6.4 19 12 13.4 17.6 19 19 17.6 13.4 12 19 6.4 17.6 5 12 10.6z"/></svg>
+  </button>
+  <button class="lightbox__btn lightbox__prev" id="lbPrev" type="button" aria-label="Previous photo">
+    <svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M15.5 4.5 8 12l7.5 7.5 1.8-1.8L11.6 12l5.7-5.7z"/></svg>
+  </button>
+  <figure class="lightbox__figure">
+    <img id="lbImg" src="" alt="Malkiyat project photo, larger view">
+    <figcaption id="lbCaption"></figcaption>
+  </figure>
+  <button class="lightbox__btn lightbox__next" id="lbNext" type="button" aria-label="Next photo">
+    <svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M8.5 4.5 16 12l-7.5 7.5-1.8-1.8L12.4 12 6.7 6.3z"/></svg>
+  </button>
+</div>
+
+<script src="app.js" defer></script>
+<script>
+/* Failsafe: if the main script never runs, never leave the loader covering the page. */
+setTimeout(function () {
+  if (!window.__mktLoaderDone) {
+    var l = document.getElementById('loader');
+    if (l) l.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+}, 7000);
+</script>
+</body>
+</html>
