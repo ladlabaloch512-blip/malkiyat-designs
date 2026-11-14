@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Malkiyat Associates &amp; Builders, Website Designs</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#0b0b0d; color:#f2efe9; font-family: Georgia, 'Times New Roman', serif; min-height:100vh; }
+  .wrap { max-width:1100px; margin:0 auto; padding:48px 20px 64px; }
+  .logo { display:block; width:min(300px,70vw); height:auto; margin:0 auto 8px; }
+  h1 { text-align:center; font-size:clamp(1.5rem,4vw,2.2rem); font-weight:600; letter-spacing:.02em; }
+  .sub { text-align:center; color:#b9b2a4; font-family: Arial, sans-serif; font-size:.95rem; margin:10px auto 40px; max-width:560px; line-height:1.55; }
+  .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+  @media (max-width:860px){ .grid{ grid-template-columns:1fr; } }
+  a.card { display:block; text-decoration:none; color:inherit; background:#141416; border:1px solid #2b2b2e; }
+  a.card img { display:block; width:100%; aspect-ratio:16/10; object-fit:cover; }
+  .card .body { padding:18px 18px 22px; }
+  .tag { font-family:Arial,sans-serif; font-size:.72rem; letter-spacing:.18em; text-transform:uppercase; color:#c9a24b; }
+  .card h2 { font-size:1.3rem; margin:8px 0 6px; font-weight:600; }
+  .card p { font-family:Arial,sans-serif; font-size:.88rem; color:#b9b2a4; line-height:1.55; }
+  .open { display:inline-block; margin-top:14px; font-family:Arial,sans-serif; font-size:.85rem; color:#0b0b0d; background:#c9a24b; padding:10px 18px; font-weight:700; }
+  footer { text-align:center; margin-top:44px; font-family:Arial,sans-serif; font-size:.8rem; color:#7d776b; }
+  footer a { color:#c9a24b; text-decoration:none; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <img class="logo" src="design-1/img/logo.png" alt="Malkiyat Associates &amp; Builders">
+    <h1>Website Designs</h1>
+    <p class="sub">Three complete designs for Malkiyat Associates &amp; Builders. Each one opens with a scroll-driven film made from the client's own project pictures. Scroll slowly inside a design to watch the house move.</p>
+    <div class="grid">
+      <a class="card" href="design-1/">
+        <img src="design-1/img/final-seq1.webp" alt="Design 1, finished house">
+        <div class="body">
+          <span class="tag">Design 1</span>
+          <h2>The Transformation</h2>
+          <p>Dark and premium, black and gold. Scroll and watch the grey structure turn into the finished house, stage by stage.</p>
+          <span class="open">Open Design 1</span>
+        </div>
+      </a>
+      <a class="card" href="design-2/">
+        <img src="design-2/img/final-seq2.webp" alt="Design 2, house in daylight">
+        <div class="body">
+          <span class="tag">Design 2</span>
+          <h2>The Day House</h2>
+          <p>Light and clean, white and charcoal. A slow cinematic move towards the finished house in daylight.</p>
+          <span class="open">Open Design 2</span>
+        </div>
+      </a>
+      <a class="card" href="design-3/">
+        <img src="design-3/img/final-seq3.webp" alt="Design 3, house at dusk">
+        <div class="body">
+          <span class="tag">Design 3</span>
+          <h2>The Dusk House</h2>
+          <p>Evening luxury, deep black with warm light. A slow move towards the house as its lights glow at dusk.</p>
+          <span class="open">Open Design 3</span>
+        </div>
+      </a>
+    </div>
+    <footer>Designed and Developed by <a href="https://abizglobalservices.com">ABiz Global Services</a></footer>
+  </div>
+</body>
+</html>
