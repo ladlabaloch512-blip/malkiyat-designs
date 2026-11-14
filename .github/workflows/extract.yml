@@ -1,0 +1,24 @@
+name: Extract site zips
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Extract all zips into repo root
+        run: |
+          for z in zips/*.zip; do unzip -o "$z" -d .; done
+          rm -rf zips
+      - name: Commit extracted files
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add -A
+          git diff --cached --quiet || git commit -m "Extract site files"
+          git push
