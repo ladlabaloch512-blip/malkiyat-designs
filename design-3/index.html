@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap">
-<link rel="stylesheet" href="style.css?v=d3-1">
+<link rel="stylesheet" href="style.css?v=d3-2">
 <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
@@ -53,52 +53,57 @@ setTimeout(function(){ if(!window.__loaderDone){ var l=document.getElementById('
 
 <main id="top">
 
-  <!-- Pinned scroll sequence -->
-  <section class="intro" id="intro" aria-label="Evening view of a Malkiyat home">
+  <!-- Pinned scroll sequence, full screen -->
+  <section class="intro" id="intro" aria-label="Evening walk through a Malkiyat home">
     <div class="intro__stage">
-      <div class="wrap intro__grid">
-        <div class="intro__text">
-          <div class="intro__start" id="introStart">
-            <p class="kicker">Malkiyat Associates &amp; Builders</p>
-            <h2 class="intro__title">Built by day.<br><em>Beautiful by dusk.</em></h2>
-            <p class="intro__cue"><span class="intro__cue-line" aria-hidden="true"></span>Scroll to walk up to the house</p>
-          </div>
-          <ol class="intro__captions" id="introCaptions" aria-label="Evening arrival">
-            <li class="intro__caption is-active">
-              <p class="intro__caption-title">Dusk Arrival</p>
-              <p class="intro__caption-text">You reach the street at dusk. The house is waiting at the end of the road, quiet and finished.</p>
-            </li>
-            <li class="intro__caption">
-              <p class="intro__caption-title">Lights On</p>
-              <p class="intro__caption-text">Wall lights and windows come alive. Good finishing is what turns a structure into a home.</p>
-            </li>
-            <li class="intro__caption">
-              <p class="intro__caption-title">Front Elevation</p>
-              <p class="intro__caption-text">Clean lines, a strong gate and a front that holds its own on any street in Islamabad or Rawalpindi.</p>
-            </li>
-            <li class="intro__caption">
-              <p class="intro__caption-title">Welcome Home</p>
-              <p class="intro__caption-text">This is the moment we build for. Scroll on to price your own plot, or talk to our team.</p>
-            </li>
-          </ol>
-          <div class="intro__rail" aria-hidden="true">
-            <div class="intro__rail-line"><span id="railFill"></span></div>
-            <ol class="intro__rail-list" id="railList">
-              <li class="is-active"><span>1</span><em>Dusk Arrival</em></li>
-              <li><span>2</span><em>Lights On</em></li>
-              <li><span>3</span><em>Front Elevation</em></li>
-              <li><span>4</span><em>Welcome Home</em></li>
-            </ol>
-          </div>
+      <picture class="intro__poster">
+        <img src="img/poster-seq3.webp" alt="A finished Malkiyat house at dusk, seen from the street" width="960" height="540" loading="eager" decoding="async">
+      </picture>
+      <canvas class="intro__canvas" id="introCanvas" aria-hidden="true"></canvas>
+      <div class="intro__shade" aria-hidden="true"></div>
+      <div class="intro__start" id="introStart">
+        <p class="kicker">Malkiyat Associates &amp; Builders</p>
+        <h2 class="intro__title">Built by day.<br><em>Beautiful by dusk.</em></h2>
+        <p class="intro__cue"><span class="intro__cue-line" aria-hidden="true"></span>Scroll to walk through the house</p>
+      </div>
+      <ol class="intro__captions" id="introCaptions" aria-label="Evening walk through the house">
+        <li class="intro__caption is-active">
+          <p class="intro__caption-title">Dusk Arrival</p>
+          <p class="intro__caption-text">The street is quiet and the house is already lit, waiting behind its black gate.</p>
+        </li>
+        <li class="intro__caption">
+          <p class="intro__caption-title">Through the Gate</p>
+          <p class="intro__caption-text">The gate opens. A tiled drive, lit pillars and lawns lead you to the front door.</p>
+        </li>
+        <li class="intro__caption">
+          <p class="intro__caption-title">Step Inside</p>
+          <p class="intro__caption-text">The front door opens onto marble floors and warm light. This is what the build is for.</p>
+        </li>
+        <li class="intro__caption">
+          <p class="intro__caption-title">The Living Room</p>
+          <p class="intro__caption-text">Living, dining and the staircase, finished to the last fitting by our own team.</p>
+        </li>
+        <li class="intro__caption">
+          <p class="intro__caption-title">Terrace at Dusk</p>
+          <p class="intro__caption-text">Glass doors open to the terrace and lawn, and the whole house glows behind you.</p>
+        </li>
+      </ol>
+      <div class="intro__final" id="introFinal">
+        <h2 class="intro__title">Built by day.<br><em>Beautiful by dusk.</em></h2>
+        <div class="btn-row intro__final-btns">
+          <a class="btn btn--amber" href="#calculator">Open cost calculator</a>
+          <a class="btn btn--ghost" href="https://wa.me/923315161679" target="_blank" rel="noopener">WhatsApp the team</a>
         </div>
-        <div class="intro__panel">
-          <picture class="intro__poster">
-            <img src="img/poster-seq3.webp" alt="A finished Malkiyat house at dusk with warm lights and a black gate" width="540" height="960" loading="eager" decoding="async">
-          </picture>
-          <canvas class="intro__canvas" id="introCanvas" aria-hidden="true"></canvas>
-          <div class="intro__shade" aria-hidden="true"></div>
-          <p class="intro__panel-tag" aria-hidden="true">An evening arrival, frame by frame</p>
-        </div>
+      </div>
+      <div class="intro__rail" aria-hidden="true">
+        <div class="intro__rail-line"><span id="railFill"></span></div>
+        <ol class="intro__rail-list" id="railList">
+          <li class="is-active"><span>1</span><em>Dusk Arrival</em></li>
+          <li><span>2</span><em>Through the Gate</em></li>
+          <li><span>3</span><em>Step Inside</em></li>
+          <li><span>4</span><em>The Living Room</em></li>
+          <li><span>5</span><em>Terrace at Dusk</em></li>
+        </ol>
       </div>
       <a class="intro__skip" href="#calculator" id="skipIntro">Skip intro</a>
     </div>
@@ -118,7 +123,7 @@ setTimeout(function(){ if(!window.__loaderDone){ var l=document.getElementById('
         </div>
       </div>
       <figure class="statement__fig">
-        <img src="img/final-seq3.webp" alt="Finished house at dusk with warm wall lights" width="540" height="960" loading="lazy" decoding="async">
+        <img src="img/final-seq3.webp" alt="Finished Malkiyat house at dusk, wide evening view" width="960" height="540" loading="lazy" decoding="async">
       </figure>
     </div>
   </section>
@@ -323,6 +328,6 @@ setTimeout(function(){ if(!window.__loaderDone){ var l=document.getElementById('
   </button>
 </div>
 
-<script src="app.js?v=d3-1" defer></script>
+<script src="app.js?v=d3-2" defer></script>
 </body>
 </html>

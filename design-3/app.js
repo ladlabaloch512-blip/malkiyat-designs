@@ -15,9 +15,10 @@
     whatsapp: "923315161679"
   };
   var SEQ = {
-    frames: 143,
+    frames: 440,
     dir: "frames/seq3/",
-    stageAt: [0, 0.30, 0.58, 0.84] // caption thresholds (slower stage changes)
+    frameEnd: 0.94, // frames play across the first 94% of the pin, then hold the last frame
+    stageAt: [0, 0.18, 0.43, 0.56, 0.72] // caption thresholds, share of pin progress
   };
 
   /* ============ Mobile nav ============ */
@@ -187,12 +188,14 @@
 
     var frames = new Array(N), loaded = new Array(N).fill(false), loading = new Array(N).fill(false);
     var inFlight = 0;
-    var target = 0, smooth = 0, dirn = 1, lastDrawn = -1, dirty = true;
+    var targetP = 0, smoothP = 0, targetF = 0, dirn = 1, lastDrawn = -1, dirty = true;
     var lifted = false;
 
-    // Keyframes: first, last, every 8th
+    function frameFloat(p) { return Math.min(p / SEQ.frameEnd, 1) * (N - 1); }
+
+    // Keyframes: first, last, every 24th
     var keyList = [], keySet = {};
-    [0, N - 1].concat((function () { var a = []; for (var i = 0; i < N; i += 8) a.push(i); return a; })())
+    [0, N - 1].concat((function () { var a = []; for (var i = 0; i < N; i += 24) a.push(i); return a; })())
       .forEach(function (i) { if (!keySet[i]) { keySet[i] = true; keyList.push(i); } });
     var keyLoaded = 0, frame0Decoded = false, fontsReady = false;
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { fontsReady = true; maybeLift(); });
@@ -225,7 +228,7 @@
       // 1) keyframes first
       for (i = 0; i < keyList.length; i++) { var k = keyList[i]; if (!loaded[k] && !loading[k]) return k; }
       // 2) nearest to target, direction aware, buffer ahead
-      var base = Math.round(target);
+      var base = Math.round(targetF);
       for (var d = 0; d < N; d++) {
         var fwd = base + dirn * d, back = base - dirn * d;
         if (fwd >= 0 && fwd < N && !loaded[fwd] && !loading[fwd]) return fwd;
@@ -335,24 +338,25 @@
       if (!visible) { lastT = t; return; }
       var dt = lastT ? Math.min(t - lastT, 100) : 16;
       lastT = t;
-      target = progress() * (N - 1);
-      var prev = smooth;
+      targetP = progress();
+      targetF = frameFloat(targetP);
+      var prev = smoothP;
       var k = 1 - Math.exp(-dt / 80);
-      smooth += (target - smooth) * k;
-      if (Math.abs(target - smooth) < 0.01) smooth = target;
-      if (smooth !== prev) dirn = smooth > prev ? 1 : -1;
-      var idx = Math.round(smooth);
+      smoothP += (targetP - smoothP) * k;
+      if (Math.abs(targetP - smoothP) < 0.0005) smoothP = targetP;
+      if (smoothP !== prev) dirn = smoothP > prev ? 1 : -1;
+      var idx = Math.round(frameFloat(smoothP));
       if (idx !== lastDrawn || dirty) { draw(idx); dirty = false; }
-      var p = smooth / (N - 1);
-      setStage(p);
-      intro.classList.toggle("is-started", p > 0.012);
-      intro.classList.toggle("is-final", p >= 0.985);
+      setStage(smoothP);
+      intro.classList.toggle("is-started", smoothP > 0.012);
+      intro.classList.toggle("is-final", smoothP >= 0.88);
       if (lifted && inFlight < 6) pump();
     }
     sizeCanvas();
-    target = progress() * (N - 1);
-    smooth = target;
-    draw(Math.round(smooth));
+    targetP = progress();
+    smoothP = targetP;
+    targetF = frameFloat(targetP);
+    draw(Math.round(targetF));
     requestAnimationFrame(loop);
     window.addEventListener("resize", function () { portrait = window.matchMedia("(max-aspect-ratio: 5/6)").matches; sizeCanvas(); });
     window.addEventListener("scroll", function () { if (lifted && inFlight < 6) pump(); }, { passive: true });
