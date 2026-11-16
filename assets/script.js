@@ -120,7 +120,7 @@ function renderCalc() {
 window.__wvOn = true;
 (function () {
   var targets = Array.prototype.slice.call(document.querySelectorAll(
-    '.hero-inner > *, .page-hero .wrap > *, .sec-head, .card, .step, .pcard, .info-card, .form-card, .split, .cta, table.rates, .stats'));
+    '.hero-inner > *, .page-hero .wrap > *, .sec-head, .card, .step, .pcard, .info-card, .form-card, .split, .cta, table.rates, .stats, .detail-layout'));
   if (!targets.length) return;
   targets.forEach(function (el) { el.setAttribute('data-rv', ''); });
 
