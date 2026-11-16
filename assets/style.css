@@ -217,3 +217,7 @@ a.pcard{display:block;text-decoration:none;color:inherit}
 .detail-info p{color:#3d4a5c;line-height:1.65}
 .detail-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
 @media(max-width:860px){.detail-layout{grid-template-columns:1fr}}
+.fcredit{border-top:1px solid rgba(255,255,255,.14);padding:16px 0 4px;text-align:center;font-size:14px;color:#b9c7da}
+.fcredit a{color:#fff;font-weight:700;text-decoration:none}
+.fcredit a:hover{color:var(--gold)}
+.fcredit a{display:inline;padding:0}
