@@ -233,3 +233,11 @@ a.pcard{display:block;text-decoration:none;color:inherit}
 .fcredit a{color:#fff;font-weight:700;text-decoration:none}
 .fcredit a:hover{color:var(--gold)}
 .fcredit a{display:inline;padding:0}
+
+/* detail page balance: capped photo + highlights fill the info column */
+.detail-img{max-height:560px;object-fit:cover;object-position:center}
+.dh-title{font-size:18px;color:var(--navy);margin:20px 0 10px}
+.highlights{list-style:none;display:grid;gap:8px}
+.highlights li{position:relative;padding-left:26px;color:#3d4a5c;line-height:1.5}
+.highlights li::before{content:"\2713";position:absolute;left:0;top:0;color:var(--gold);font-weight:800}
+@media(max-width:860px){.detail-img{max-height:430px}}
