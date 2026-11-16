@@ -187,3 +187,20 @@ footer p{font-size:15px}
 footer .logo .lname,footer .logo .lsub{color:#fff}
 .fbottom{border-top:1px solid rgba(255,255,255,.14);padding:18px 0;font-size:13.5px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .wa-float{position:fixed;right:18px;bottom:18px;z-index:60;width:56px;height:56px;border-radius:50%;background:#1faa55;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 22px rgba(0,0,0,.25)}
+
+/* Wave Cascade reveal: sections hidden first, reveal in a cascade while scrolling.
+   Hidden state exists only under the js-added html.wv gate, so no-JS stays fully visible. */
+[data-rv]{transition:opacity .6s ease,transform .65s cubic-bezier(.34,1.35,.64,1)}
+html.wv [data-rv]{opacity:0;transform:translateY(26px)}
+html.wv [data-rv].in{opacity:1;transform:translateY(0)}
+.pcard img{transition:transform .5s ease}
+.pcard:hover img{transform:scale(1.06)}
+
+/* Animated wave dividers */
+.wave-sep{height:54px;overflow:hidden;position:relative}
+.wave-sep .wtrack{position:absolute;left:0;bottom:-2px;width:200%;height:100%;display:flex;animation:waveSlide 11s linear infinite}
+.wave-sep .wtrack.slow{animation-duration:18s;animation-direction:reverse;opacity:.32}
+.wave-sep svg{flex:0 0 50%;width:50%;height:100%}
+@keyframes waveSlide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.wave-sep.from-navy{background:var(--navy)}
+.wave-sep.to-navy{background:#fff}

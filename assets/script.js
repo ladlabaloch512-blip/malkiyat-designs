@@ -114,3 +114,68 @@ function renderCalc() {
     window.open('https://wa.me/923315161679?text=' + encodeURIComponent(text), '_blank');
   });
 })();
+
+// Wave Cascade reveal engine: targets hidden first (html.wv gate), reveal in a
+// staggered cascade as they enter the viewport. Never re-hides. No reduced-motion gating.
+window.__wvOn = true;
+(function () {
+  var targets = Array.prototype.slice.call(document.querySelectorAll(
+    '.hero-inner > *, .page-hero .wrap > *, .sec-head, .card, .step, .pcard, .info-card, .form-card, .split, .cta, table.rates, .stats'));
+  if (!targets.length) return;
+  targets.forEach(function (el) { el.setAttribute('data-rv', ''); });
+
+  var counted = false;
+  function countUp() {
+    if (counted) return; counted = true;
+    document.querySelectorAll('.stat .num').forEach(function (n) {
+      var m = n.textContent.match(/(\d+)(.*)/);
+      if (!m) return;
+      var end = parseInt(m[1], 10), suf = m[2], t0 = null;
+      function step(t) {
+        if (!t0) t0 = t;
+        var p = Math.min((t - t0) / 1100, 1);
+        n.textContent = Math.round(end * (1 - Math.pow(1 - p, 3))) + suf;
+        if (p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    });
+  }
+
+  var queue = [], timer = null;
+  function flush() {
+    queue.forEach(function (el, i) {
+      el.style.transitionDelay = Math.min(i, 8) * 70 + 'ms';
+      el.classList.add('in');
+      el.addEventListener('transitionend', function h() {
+        el.style.transitionDelay = '';
+        el.removeEventListener('transitionend', h);
+      });
+    });
+    queue = []; timer = null;
+  }
+  function reveal(el) {
+    if (el.classList.contains('in')) return;
+    queue.push(el);
+    if (!timer) timer = setTimeout(flush, 30);
+    if (el.classList && el.classList.contains('stats')) countUp();
+  }
+  function inView(el) {
+    var r = el.getBoundingClientRect();
+    return r.top < window.innerHeight * 0.92 && r.bottom > 0;
+  }
+  function sweep() {
+    targets.forEach(function (el) { if (!el.classList.contains('in') && inView(el)) reveal(el); });
+  }
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { reveal(e.target); io.unobserve(e.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    targets.forEach(function (el) { io.observe(el); });
+  }
+  window.addEventListener('scroll', sweep, { passive: true });
+  window.addEventListener('resize', sweep);
+  setInterval(sweep, 1500); // viewport-scoped passes only, never reveals off-screen items early
+  sweep();
+})();
