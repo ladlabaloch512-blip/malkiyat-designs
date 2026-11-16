@@ -40,13 +40,25 @@ nav.main .btn{padding:10px 20px}
 nav.main a.btn{color:#fff;border-bottom:2px solid var(--navy)}
 .burger{display:none;background:none;border:0;cursor:pointer;padding:8px}
 .burger span{display:block;width:24px;height:2.5px;background:var(--navy);margin:5px 0;border-radius:2px}
+.drawer-head{display:none}
 @media(max-width:860px){
-  nav.main{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;align-items:stretch;gap:0;padding:10px 4%;box-shadow:0 14px 24px rgba(10,42,82,.12)}
-  nav.main.open{display:flex}
-  nav.main a{padding:12px 4px;border-bottom:1px solid var(--line)}
-  nav.main .btn{margin:12px 0;text-align:center;justify-content:center}
+  nav.main{display:flex;position:fixed;top:0;left:0;bottom:0;width:min(330px,86vw);background:#fff;flex-direction:column;align-items:stretch;gap:0;padding:0 22px 22px;box-shadow:18px 0 44px rgba(10,42,82,.22);z-index:60;overflow-y:auto;transform:translateX(-106%);visibility:hidden;transition:transform .45s cubic-bezier(.32,.72,.24,1),visibility 0s linear .45s}
+  nav.main.open{transform:translateX(0);visibility:visible;transition:transform .45s cubic-bezier(.32,.72,.24,1)}
+  .drawer-head{display:flex;align-items:center;justify-content:space-between;padding:18px 0 12px;margin-bottom:6px;border-bottom:2px solid var(--gold);font-family:'Poppins',sans-serif;font-weight:700;color:var(--navy);font-size:17px}
+  .drawer-close{display:flex;background:none;border:0;cursor:pointer;padding:6px;color:var(--navy)}
+  nav.main a{padding:14px 2px;border-bottom:1px solid var(--line);font-size:16px;opacity:0;transform:translateX(-14px);transition:opacity .3s ease,transform .35s ease}
+  nav.main.open a{opacity:1;transform:translateX(0)}
+  nav.main.open a:nth-of-type(1){transition-delay:.07s}
+  nav.main.open a:nth-of-type(2){transition-delay:.12s}
+  nav.main.open a:nth-of-type(3){transition-delay:.17s}
+  nav.main.open a:nth-of-type(4){transition-delay:.22s}
+  nav.main.open a:nth-of-type(5){transition-delay:.27s}
+  nav.main.open a.btn{transition-delay:.32s}
+  nav.main .btn{margin:16px 0 0;text-align:center;justify-content:center}
   .burger{display:block}
-  header .wrap{position:relative}
+  .nav-scrim{position:fixed;inset:0;background:rgba(7,30,60,.48);opacity:0;visibility:hidden;transition:opacity .35s ease,visibility 0s linear .35s;z-index:49}
+  .nav-scrim.on{opacity:1;visibility:visible;transition:opacity .35s ease}
+  body.menu-lock{overflow:hidden}
 }
 
 /* Hero (matches the reference picture: photo across the whole hero, text over a white fade) */

@@ -1,11 +1,23 @@
-// Mobile menu
+// Mobile menu: slide-in sidebar drawer with backdrop
 (function () {
   var burger = document.querySelector('.burger');
   var nav = document.querySelector('nav.main');
-  if (burger && nav) {
-    burger.addEventListener('click', function () { nav.classList.toggle('open'); });
-    nav.addEventListener('click', function (e) { if (e.target.tagName === 'A') nav.classList.remove('open'); });
+  if (!burger || !nav) return;
+  var scrim = document.createElement('div');
+  scrim.className = 'nav-scrim';
+  document.body.appendChild(scrim);
+  var closeBtn = nav.querySelector('.drawer-close');
+  function setMenu(open) {
+    nav.classList.toggle('open', open);
+    scrim.classList.toggle('on', open);
+    document.body.classList.toggle('menu-lock', open);
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
   }
+  burger.addEventListener('click', function () { setMenu(!nav.classList.contains('open')); });
+  scrim.addEventListener('click', function () { setMenu(false); });
+  if (closeBtn) closeBtn.addEventListener('click', function () { setMenu(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
+  nav.addEventListener('click', function (e) { if (e.target.tagName === 'A') setMenu(false); });
 })();
 
 // Project filters
