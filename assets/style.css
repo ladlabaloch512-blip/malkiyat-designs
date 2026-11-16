@@ -50,8 +50,8 @@ nav.main a.btn{color:#fff;border-bottom:2px solid var(--navy)}
 }
 
 /* Hero (matches the reference picture: photo across the whole hero, text over a white fade) */
-.hero{position:relative;padding:64px 0 0;overflow:hidden;background:#e9edf2}
-.hero::before{content:"";position:absolute;inset:0;background:url('img/hero.jpg') no-repeat center 30%/cover}
+.hero{position:relative;padding:64px 0 0;overflow:hidden;background:#f2f5f8}
+.hero::before{content:"";position:absolute;inset:0;background:url('img/hero-wide.jpg') no-repeat center/cover}
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,.97) 0%,rgba(255,255,255,.94) 30%,rgba(255,255,255,.58) 56%,rgba(255,255,255,.10) 79%,rgba(255,255,255,0) 100%)}
 .hero-inner{position:relative;z-index:2;max-width:570px;padding:22px 0 58px}
 .hero h1{font-size:47px;font-weight:800;letter-spacing:-.5px;margin-bottom:14px}
@@ -65,7 +65,7 @@ nav.main a.btn{color:#fff;border-bottom:2px solid var(--navy)}
 .stat .lbl{font-size:13.5px;color:#c7d5e8}
 @media(max-width:860px){
   .hero{padding-top:42px}
-  .hero::before{background-position:center 26%}
+  .hero::before{background-position:78% center}
   .hero::after{background:linear-gradient(180deg,rgba(255,255,255,.96) 0%,rgba(255,255,255,.88) 52%,rgba(255,255,255,.62) 100%)}
   .hero-inner{padding-bottom:40px}
   .hero h1{font-size:34px}
