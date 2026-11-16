@@ -49,24 +49,26 @@ nav.main a.btn{color:#fff;border-bottom:2px solid var(--navy)}
   header .wrap{position:relative}
 }
 
-/* Hero (matches the reference picture) */
-.hero{background:linear-gradient(180deg,#fbfcfe 0%,var(--grey-bg) 100%);padding:56px 0 0;overflow:hidden}
-.hero-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:36px;align-items:center}
+/* Hero (matches the reference picture: photo across the whole hero, text over a white fade) */
+.hero{position:relative;padding:64px 0 0;overflow:hidden;background:#e9edf2}
+.hero::before{content:"";position:absolute;inset:0;background:url('img/hero.jpg') no-repeat center 30%/cover}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,.97) 0%,rgba(255,255,255,.94) 30%,rgba(255,255,255,.58) 56%,rgba(255,255,255,.10) 79%,rgba(255,255,255,0) 100%)}
+.hero-inner{position:relative;z-index:2;max-width:570px;padding:22px 0 58px}
 .hero h1{font-size:47px;font-weight:800;letter-spacing:-.5px;margin-bottom:14px}
 .hero .tag{font-size:19px;color:var(--ink);font-weight:500;letter-spacing:.4px;margin-bottom:30px}
 .hero .tag b{color:var(--navy)}
-.hero-photo{border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
-.hero-photo img{width:100%;height:430px;object-fit:cover;object-position:center 38%}
-.stats{background:var(--navy);margin-top:52px}
+.stats{position:relative;z-index:2;background:var(--navy);margin-top:6px}
 .stats .wrap{display:grid;grid-template-columns:repeat(3,1fr);padding:26px 0}
 .stat{display:flex;align-items:center;justify-content:center;gap:14px;color:#fff;text-align:left}
 .stat svg{flex:none}
 .stat .num{font-family:'Poppins',sans-serif;font-size:27px;font-weight:700;line-height:1.1}
 .stat .lbl{font-size:13.5px;color:#c7d5e8}
 @media(max-width:860px){
-  .hero-grid{grid-template-columns:1fr}
+  .hero{padding-top:42px}
+  .hero::before{background-position:center 26%}
+  .hero::after{background:linear-gradient(180deg,rgba(255,255,255,.96) 0%,rgba(255,255,255,.88) 52%,rgba(255,255,255,.62) 100%)}
+  .hero-inner{padding-bottom:40px}
   .hero h1{font-size:34px}
-  .hero-photo img{height:300px}
   .stats .wrap{grid-template-columns:1fr;gap:18px;padding:24px 0}
   .stat{justify-content:flex-start}
   section{padding:52px 0}
