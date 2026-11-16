@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get a Quote | Malkiyat Constructions</title>
+<meta name="description" content="Instant construction cost calculator and quotation request for house construction in Islamabad and Rawalpindi by Malkiyat Constructions.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header><div class="wrap nav">
+<a class="logo" href="index.html"><svg width="42" height="42" viewBox="0 0 48 48" aria-hidden="true"><path fill="#0a2a52" d="M4 44V22l7-5v27zM13 44V12l11-6v38zM26 44V18l8 5v21zM36 44V27l6 4v13z"/><g fill="#d9a441"><rect x="17" y="13" width="3" height="4"/><rect x="21" y="13" width="3" height="4"/><rect x="17" y="20" width="3" height="4"/><rect x="21" y="20" width="3" height="4"/><rect x="17" y="27" width="3" height="4"/><rect x="21" y="27" width="3" height="4"/><rect x="29" y="25" width="3" height="4"/><rect x="29" y="32" width="3" height="4"/></g></svg><span><span class="lname">MALIKIYAT</span><br><span class="lsub">CONSTRUCTIONS</span></span></a>
+<button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+<nav class="main">
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="services.html">Services</a>
+<a href="projects.html">Projects</a>
+<a href="contact.html">Contact</a>
+<a class="btn" href="quote.html">Get a Quote</a>
+</nav></div></header>
+
+<div class="page-hero"><div class="wrap"><h1>Get a Quote</h1><p>Use the calculator for an instant estimate, then send it to us on WhatsApp for a detailed written quotation.</p></div></div>
+<section><div class="wrap">
+<div class="grid2" style="align-items:start" id="calcGrid">
+<div class="form-card">
+<h2>Construction Cost Calculator</h2>
+<p>Select your plot size, floors and package. The estimate updates instantly.</p>
+<div class="frow">
+<div class="field"><label for="plotSize">Plot Size</label>
+<select id="plotSize">
+<option value="5">5 Marla</option>
+<option value="10" selected>10 Marla</option>
+<option value="20">1 Kanal</option>
+<option value="other">Other</option>
+</select></div>
+<div class="field" id="marlaRow" style="display:none"><label for="marlaInput">Plot Size (Marla)</label><input id="marlaInput" type="number" min="1" value="7"></div>
+<div class="field"><label for="floors">Floors</label>
+<select id="floors">
+<option value="1">1 Floor</option>
+<option value="2" selected>2 Floors</option>
+<option value="3">3 Floors</option>
+</select></div>
+</div>
+<div class="field"><label style="display:flex;align-items:center;gap:9px;cursor:pointer"><input type="checkbox" id="mumty" checked style="width:18px;height:18px;accent-color:var(--navy)"> Include mumty (adds 300 sq ft)</label></div>
+<div class="field"><label>Finishing Package</label>
+<div class="pkgs">
+<label class="pkg"><input type="radio" name="pkg" value="grey"><span class="pn">Grey</span><br><span class="pr">Rs 4,000 / sq ft</span></label>
+<label class="pkg"><input type="radio" name="pkg" value="silver"><span class="pn">Silver</span><br><span class="pr">Rs 6,500 / sq ft</span></label>
+<label class="pkg sel"><input type="radio" name="pkg" value="gold" checked><span class="pn">Gold</span><br><span class="pr">Rs 7,500 / sq ft</span></label>
+<label class="pkg"><input type="radio" name="pkg" value="platinum"><span class="pn">Platinum</span><br><span class="pr">Rs 8,500 / sq ft</span></label>
+</div></div>
+<div class="result">
+<div class="rrow"><span>Covered Area</span><b id="rArea">5,300 sq ft</b></div>
+<div class="rrow"><span>Rate</span><b id="rRate">Rs 7,500 / sq ft</b></div>
+<div class="rrow total"><span>Estimated Cost</span><b id="rTotal">Rs 3.98 crore</b></div>
+<a class="btn wa" id="waCalc" href="https://wa.me/923315161679" target="_blank" rel="noopener">Send This Estimate on WhatsApp</a>
+</div>
+<p class="note">This is an indicative estimate based on standard covered areas. Your final quotation is confirmed after plot measurement, design and a site visit.</p>
+</div>
+<div>
+<div class="card" style="margin-bottom:20px"><div class="ic"><svg width="27" height="27" viewBox="0 0 24 24" fill="none" stroke="#0a2a52" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 5-3.2 8.4-7 10-3.8-1.6-7-5-7-10V6z"/><path d="M9 12l2.2 2.2L15.5 10"/></svg></div><h3>Written Quotation</h3><p>Every serious enquiry receives a written, itemised quotation. No verbal-only prices, no hidden charges added later.</p></div>
+<div class="card" style="margin-bottom:20px"><div class="ic"><svg width="27" height="27" viewBox="0 0 24 24" fill="none" stroke="#0a2a52" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3.5 2"/></svg></div><h3>Free Consultation</h3><p>Not sure about plot size, design or budget? Call us at <a href="tel:+923075716367" style="color:var(--navy);font-weight:600">+92 307 5716367</a> and discuss your plan before spending anything.</p></div>
+<img src="assets/img/hero.jpg" alt="Modern home built by Malkiyat Constructions" style="border-radius:14px;width:100%;height:260px;object-fit:cover">
+</div>
+</div>
+</div></section>
+
+<footer><div class="wrap">
+<div class="fgrid">
+<div>
+<a class="logo" href="index.html"><svg width="42" height="42" viewBox="0 0 48 48" aria-hidden="true"><path fill="#0a2a52" d="M4 44V22l7-5v27zM13 44V12l11-6v38zM26 44V18l8 5v21zM36 44V27l6 4v13z"/><g fill="#d9a441"><rect x="17" y="13" width="3" height="4"/><rect x="21" y="13" width="3" height="4"/><rect x="17" y="20" width="3" height="4"/><rect x="21" y="20" width="3" height="4"/><rect x="17" y="27" width="3" height="4"/><rect x="21" y="27" width="3" height="4"/><rect x="29" y="25" width="3" height="4"/><rect x="29" y="32" width="3" height="4"/></g></svg><span><span class="lname">MALIKIYAT</span><br><span class="lsub">CONSTRUCTIONS</span></span></a>
+<p style="margin-top:16px">Complete construction services in Islamabad and Rawalpindi: design, build and finishing, delivered with quality, reliability and innovation.</p>
+<p style="margin-top:10px">PEC Registered Firm<br>Islamabad Chamber of Commerce Member</p>
+</div>
+<div><h4>Quick Links</h4>
+<a href="index.html">Home</a><a href="about.html">About Us</a><a href="services.html">Services</a><a href="projects.html">Projects</a><a href="contact.html">Contact</a><a href="quote.html">Get a Quote</a>
+</div>
+<div><h4>Services</h4>
+<a href="services.html">Grey Structure</a><a href="services.html">Turnkey Finishing</a><a href="services.html">Design &amp; Planning</a><a href="services.html">Renovation</a><a href="services.html">Cost Estimation</a><a href="services.html">Project Supervision</a>
+</div>
+<div><h4>Contact</h4>
+<p>B Block, Gulberg Greens,<br>Islamabad, Pakistan</p>
+<a href="tel:+923075716367">Call: +92 307 5716367</a>
+<a href="https://wa.me/923315161679">WhatsApp: +92 331 5161679</a>
+<a href="mailto:sarmadmalikrealtor@gmail.com">sarmadmalikrealtor@gmail.com</a>
+<p style="margin-top:8px">Contractor: Sarmad Awan</p>
+</div>
+</div>
+<div class="fbottom"><span>© 2026 Malkiyat Constructions. All rights reserved.</span><span>Islamabad | Rawalpindi</span></div>
+</div></footer>
+<a class="wa-float" href="https://wa.me/923315161679" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg width="29" height="29" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.4-.7-2.9-1.2-4.7-4.1-4.9-4.3-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5s.8 1.9.8 2c.1.1.1.3 0 .5-.3.6-.6.8-.4 1.1.7 1.2 1.6 2 2.8 2.6.3.2.5.1.7-.1l.9-1c.2-.3.4-.2.7-.1l2 .9c.3.2.5.3.6.4 0 .1 0 .7-.2 1.2z"/></svg></a>
+<script src="assets/script.js"></script>
+</body>
+</html>
