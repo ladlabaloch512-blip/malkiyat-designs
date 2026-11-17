@@ -37,76 +37,93 @@
   });
 })();
 
-// Cost calculator (rates per sq ft of covered area)
-var RATES = { grey: 4000, silver: 6500, gold: 7500, platinum: 8500 };
-var BASE_AREA = { '5': 1100, '10': 2500, '20': 4500 }; // first floor covered area by plot size in Marla
-
-function fmtRs(n) {
-  if (n >= 10000000) { var c = Math.round(n / 100000) / 100; return 'Rs ' + c + ' crore'; }
-  if (n >= 100000) { var l = Math.round(n / 1000) / 100; return 'Rs ' + l + ' lakh'; }
+// Quick estimate calculator: covered area = floors x plot sq ft + mumty (auto by plot size)
+var QC_RATES = { silver: 6500, gold: 7500, platinum: 8500, grey: 4000 };
+function qcFmt(n) {
+  if (n >= 10000000) return 'Rs ' + (n / 10000000).toFixed(2).replace(/\.?0+$/, '') + ' crore';
+  if (n >= 100000) return 'Rs ' + (n / 100000).toFixed(2).replace(/\.?0+$/, '') + ' lakh';
   return 'Rs ' + n.toLocaleString('en-PK');
 }
-
-function calcEstimate() {
-  var sizeEl = document.getElementById('plotSize');
-  if (!sizeEl) return null;
-  var sizeVal = sizeEl.value;
-  var base;
-  var sizeLabel;
-  if (sizeVal === 'other') {
-    var marla = parseFloat(document.getElementById('marlaInput').value) || 0;
-    base = marla * 250;
-    sizeLabel = marla + ' Marla';
-  } else {
-    base = BASE_AREA[sizeVal];
-    sizeLabel = sizeVal === '20' ? '1 Kanal' : sizeVal + ' Marla';
-  }
-  var floors = parseInt(document.getElementById('floors').value, 10) || 1;
-  var area = base;
-  if (floors >= 2) area += base;            // second floor, full cover
-  if (floors >= 3) area += base * 0.95;     // third floor
-  var mumty = document.getElementById('mumty').checked;
-  if (mumty && floors >= 2) area += 300;
-  area = Math.round(area);
-  var pkgEl = document.querySelector('input[name="pkg"]:checked');
-  var pkgKey = pkgEl ? pkgEl.value : 'gold';
-  var rate = RATES[pkgKey];
-  var total = area * rate;
-  return { area: area, rate: rate, total: total, floors: floors, sizeLabel: sizeLabel, pkgKey: pkgKey, mumty: mumty };
-}
-
-function renderCalc() {
-  var r = calcEstimate();
-  if (!r) return;
-  document.querySelectorAll('.pkg').forEach(function (p) {
-    var input = p.querySelector('input');
-    p.classList.toggle('sel', input && input.checked);
-  });
-  document.getElementById('rArea').textContent = r.area.toLocaleString('en-PK') + ' sq ft';
-  document.getElementById('rRate').textContent = 'Rs ' + r.rate.toLocaleString('en-PK') + ' / sq ft';
-  document.getElementById('rTotal').textContent = fmtRs(r.total);
-  var pkgNames = { grey: 'Grey Structure', silver: 'Silver', gold: 'Gold', platinum: 'Platinum' };
-  var msg = 'Assalam-o-Alaikum, I used the cost calculator on the Malkiyat Constructions website.\n' +
-    'Plot: ' + r.sizeLabel + ', Floors: ' + r.floors + (r.mumty ? ', with mumty' : '') + '\n' +
-    'Package: ' + pkgNames[r.pkgKey] + '\n' +
-    'Covered area: ' + r.area.toLocaleString('en-PK') + ' sq ft\n' +
-    'Estimated cost: ' + fmtRs(r.total) + '\n' +
-    'Please share the details.';
-  document.getElementById('waCalc').href = 'https://wa.me/923315161679?text=' + encodeURIComponent(msg);
-}
-
 (function () {
-  var sizeEl = document.getElementById('plotSize');
-  if (!sizeEl) return;
-  var marlaRow = document.getElementById('marlaRow');
-  function syncMarla() { marlaRow.style.display = sizeEl.value === 'other' ? '' : 'none'; }
-  ['plotSize', 'floors', 'mumty', 'marlaInput'].forEach(function (id) {
-    var el = document.getElementById(id);
-    if (el) { el.addEventListener('change', function () { syncMarla(); renderCalc(); }); el.addEventListener('input', renderCalc); }
+  var root = document.querySelector('.qcalc');
+  if (!root) return;
+  var state = { type: 'finishing', pkg: 'gold', plot: '10', floors: 2 };
+  function seg(name) { return root.querySelector('[data-seg="' + name + '"]'); }
+  function setOn(group, val) {
+    group.querySelectorAll('button').forEach(function (btn) {
+      btn.classList.toggle('on', btn.getAttribute('data-v') === String(val));
+    });
+  }
+  function plotSqft() {
+    if (state.plot === 'other') {
+      var v = parseFloat(document.getElementById('qcSize').value);
+      if (!v || v <= 0) return null;
+      var u = document.getElementById('qcUnit').value;
+      return v * (u === 'kanal' ? 5000 : u === 'sqft' ? 1 : 250);
+    }
+    return parseInt(state.plot, 10) * 250;
+  }
+  function plotLabel() {
+    if (state.plot === 'other') {
+      var v = document.getElementById('qcSize').value;
+      var u = document.getElementById('qcUnit').value;
+      return v + ' ' + (u === 'kanal' ? 'Kanal' : u === 'sqft' ? 'sq ft' : 'Marla');
+    }
+    return state.plot === '20' ? '1 Kanal' : state.plot + ' Marla';
+  }
+  function render() {
+    var sq = plotSqft();
+    var areaEl = document.getElementById('qcArea');
+    var priceEl = document.getElementById('qcPrice');
+    var noteEl = document.getElementById('qcNote');
+    var wa = document.getElementById('waCalc');
+    if (sq === null) {
+      areaEl.textContent = '0';
+      priceEl.textContent = 'Rs 0';
+      noteEl.textContent = 'Enter your plot size. A first guide; your written quotation follows a site visit.';
+      wa.href = 'https://wa.me/923315161679';
+      return;
+    }
+    var marlaEq = sq / 250;
+    var mumty = marlaEq <= 6 ? 200 : marlaEq < 20 ? 300 : 500;
+    var area = Math.round(state.floors * sq + mumty);
+    var rate = state.type === 'grey' ? QC_RATES.grey : QC_RATES[state.pkg];
+    var total = area * rate;
+    areaEl.textContent = area.toLocaleString('en-PK');
+    priceEl.textContent = qcFmt(total);
+    noteEl.textContent = 'Rs ' + rate.toLocaleString('en-PK') + ' per sq ft \u00d7 ' + area.toLocaleString('en-PK') + ' sq ft, including a ' + mumty + ' sq ft mumty. A first guide; your written quotation follows a site visit.';
+    var pkgNames = { silver: 'Silver', gold: 'Gold', platinum: 'Platinum' };
+    var msg = 'Assalam-o-Alaikum, I used the cost calculator on the Malkiyat Constructions website.\n' +
+      'Type: ' + (state.type === 'grey' ? 'Grey structure' : 'With finishing') + '\n' +
+      (state.type === 'grey' ? '' : 'Package: ' + pkgNames[state.pkg] + '\n') +
+      'Plot: ' + plotLabel() + ', Floors: ' + state.floors + '\n' +
+      'Covered area: ' + area.toLocaleString('en-PK') + ' sq ft (including ' + mumty + ' sq ft mumty)\n' +
+      'Estimated cost: ' + qcFmt(total) + '\n' +
+      'Please share the details.';
+    wa.href = 'https://wa.me/923315161679?text=' + encodeURIComponent(msg);
+  }
+  ['type', 'pkg', 'plot', 'floors'].forEach(function (name) {
+    var g = seg(name);
+    if (!g) return;
+    g.addEventListener('click', function (e) {
+      var btn = e.target.closest('button');
+      if (!btn) return;
+      var v = btn.getAttribute('data-v');
+      if (name === 'type') {
+        state.type = v; setOn(g, v);
+        var pkgSeg = seg('pkg');
+        var greyBlock = root.querySelector('[data-greyblock]');
+        if (v === 'grey') { pkgSeg.hidden = true; greyBlock.hidden = false; }
+        else { pkgSeg.hidden = false; greyBlock.hidden = true; state.pkg = 'gold'; setOn(pkgSeg, 'gold'); }
+      } else if (name === 'pkg') { state.pkg = v; setOn(g, v); }
+      else if (name === 'plot') { state.plot = v; setOn(g, v); root.querySelector('[data-other]').hidden = v !== 'other'; }
+      else if (name === 'floors') { state.floors = parseInt(v, 10); setOn(g, v); }
+      render();
+    });
   });
-  document.querySelectorAll('input[name="pkg"]').forEach(function (el) { el.addEventListener('change', renderCalc); });
-  syncMarla();
-  renderCalc();
+  document.getElementById('qcSize').addEventListener('input', render);
+  document.getElementById('qcUnit').addEventListener('change', render);
+  render();
 })();
 
 // Contact / quote form -> WhatsApp
